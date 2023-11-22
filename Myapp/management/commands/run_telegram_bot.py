@@ -32,7 +32,7 @@ def add_product(message):
 
         bot.send_message(message.chat.id, f"News '{news_name}' added successfully!")
     else:
-        bot.send_message(message.chat.id, "Invalid format. Use: /add <news_name> <news_data>")
+        bot.send_message(message.chat.id, "Invalid format. Example: /add almau YYYY-MM-DD")
 
 
 @bot.message_handler(func=lambda message: True)
