@@ -22,5 +22,8 @@ jobs:
         port: 22
         script: |
           cd /root/devopss-hw
-          git pull origin master  # Пример команды, чтобы получить изменения из репозитория
-          # Добавь другие команды, которые нужно выполнить на сервере после обновления кода
+          source ./venv/bin/activate
+          git pull
+          python manage.py migrate
+          python manage.py collectstatic --noinput
+          supervisorctl restart all
