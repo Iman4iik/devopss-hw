@@ -10,10 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Deploy to Server
+    - uses: actions/checkout@v3
+    - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
         host: 143.198.26.90
