@@ -18,7 +18,8 @@ jobs:
       with:
         host: 143.198.26.90
         username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        passphrase: ${{ secrets.SSH_PASSPHRASE }}
         port: 22
         script: |
           cd /root/devopss-hw
