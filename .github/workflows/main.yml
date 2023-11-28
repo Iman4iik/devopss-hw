@@ -6,20 +6,22 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
+  
     runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.6]
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Deploy to Server
+    - uses: actions/checkout@v3
+    - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
         host: 143.198.26.90
         username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        passphrase: ${{ secrets.SSH_PASSPHRASE }}
+        password: ${{ secrets.PASSWORD }}
         port: 22
         script: |
           cd /root/devopss-hw
