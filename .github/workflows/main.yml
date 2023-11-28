@@ -6,17 +6,14 @@ on:
       - main
 
 jobs:
-  build:
-  
+  deploy:
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.6]
 
     steps:
-    - uses: actions/checkout@v3
-    - name: executing remote ssh commands using password
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy to Server
       uses: appleboy/ssh-action@master
       with:
         host: 143.198.26.90
