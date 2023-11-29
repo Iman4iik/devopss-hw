@@ -13,7 +13,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.10]
+        python-version: [3.11]
             
     steps:
     - uses: actions/checkout@v3
@@ -26,7 +26,7 @@ jobs:
         port: 22
         script: |
           cd /root/devopss-hw
-          source ./venv/bin/activate
+          source ../venv/bin/activate
           git pull
           python manage.py migrate
           python manage.py collectstatic --noinput
